@@ -28,6 +28,9 @@ CREATE TABLE kt_category(
   cat_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
   cat_name VARCHAR(45) NOT NULL ,
   cat_desc VARCHAR(45) NOT NULL ,
+  unit VARCHAR(10) NOT NULL ,
+  sort_order TINYINT(3) NOT NULL DEFAULT 0,
+  is_show TINYINT(3) NOT NULL DEFAULT 1,
   parent_id INT NOT NULL DEFAULT 0
 );
 CREATE TABLE kt_attribute(
