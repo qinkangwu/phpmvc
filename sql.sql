@@ -14,8 +14,8 @@ CREATE TABLE  kt_goods (
   add_time INT NOT NULL DEFAULT 0,
   brand_id INT NOT NULL,
   cat_id INT NOT NULL ,
-  CONSTRAINT 'gb_id' FOREIGN KEY ('brand_id') REFERENCES 'kt_brand'('brand_id'),
-  CONSTRAINT 'gc_id' FOREIGN KEY ('cat_id') REFERENCES  'kt_category'('cat_id')
+  FOREIGN KEY (brand_id) REFERENCES kt_brand(brand_id),
+  FOREIGN KEY (cat_id) REFERENCES  kt_category(cat_id)
 );
 
 CREATE TABLE kt_brand(
@@ -35,16 +35,20 @@ CREATE TABLE kt_attribute(
   attr_name VARCHAR(45) NOT NULL ,
   attr_type TINYINT(3) NOT NULL ,
   attr_input_type TINYINT(3) NOT NULL ,
-  attr_value VARCHAR(45) NOT NULL
+  attr_value VARCHAR(45) NOT NULL,
+  type_id INT NOT NULL ,
+  FOREIGN KEY (type_id) REFERENCES kt_goods_type(type_id)
 );
 CREATE TABLE kt_goods_attr(
   rec_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   goods_id INT NOT NULL ,
   attr_id INT NOT NULL ,
   attr_value VARCHAR(45) NOT NULL ,
-  CONSTRAINT 'ga_id' FOREIGN KEY ('goods_id') REFERENCES 'kt_goods' ('goods_id'),
-  CONSTRAINT 'aa_id' FOREIGN KEY ('attr_id') REFERENCES 'kt_attribute' ('attr_id')
+  FOREIGN KEY (goods_id) REFERENCES kt_goods(goods_id),
+  FOREIGN KEY (attr_id) REFERENCES kt_attribute(attr_id)
 );
 CREATE TABLE kt_goods_type(
-
+  type_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+  type_name VARCHAR(45) NOT NULL
 );
+SHOW TABLES ;

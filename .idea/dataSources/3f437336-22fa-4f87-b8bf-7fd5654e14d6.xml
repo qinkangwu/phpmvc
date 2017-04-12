@@ -13,30 +13,83 @@
     <schema id="7" parent="1" name="sys"/>
     <schema id="8" parent="1" name="ultrax"/>
     <table id="9" parent="2" name="kt_admin"/>
-    <column id="10" parent="9" name="admin_id">
+    <table id="10" parent="2" name="kt_brand"/>
+    <table id="11" parent="2" name="kt_category"/>
+    <column id="12" parent="9" name="admin_id">
       <Position>1</Position>
       <DataType>int(4)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="11" parent="9" name="admin_name">
+    <column id="13" parent="9" name="admin_name">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="12" parent="9" name="admin_password">
+    <column id="14" parent="9" name="admin_password">
       <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="13" parent="9" name="admin_email">
+    <column id="15" parent="9" name="admin_email">
       <Position>4</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="14" parent="9" name="admin_time">
+    <column id="16" parent="9" name="admin_time">
       <Position>5</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <key id="15" parent="9" name="PRIMARY">
+    <key id="17" parent="9" name="PRIMARY">
       <ColNames>admin_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="18" parent="10" name="brand_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="19" parent="10" name="brand_name">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="10" name="brand_logo">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="10" name="brand_desc">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="22" parent="10" name="PRIMARY">
+      <ColNames>brand_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="23" parent="11" name="cat_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="24" parent="11" name="cat_name">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="11" name="cat_desc">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="11" name="parent_id">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <key id="27" parent="11" name="PRIMARY">
+      <ColNames>cat_id</ColNames>
       <Primary>1</Primary>
     </key>
   </database-model>
