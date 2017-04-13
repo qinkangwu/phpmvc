@@ -16,4 +16,15 @@
             }
             return $res;
         }
+        public function getSubIds($cat_id){
+            $sql = "SELECT * FROM {$this->table}";
+            $cats = $this->db->getAll($sql);
+            $cats = $this->tree($cats,$cat_id);
+            $res = array();
+            foreach ($cats as $cat) {
+                $res[] = $cat['cat_id'];
+            }
+            $res[] = $cat_id;
+            return $res;
+        }
     }

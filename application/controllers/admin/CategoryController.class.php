@@ -46,15 +46,31 @@
                 $this->jump('index.php?p=admin&c=category&a=add','分类名称不能为空',3);
             }
             $category = new CategoryModel('category');
+            $ids = $category->getSubIds($data['cat_id']);
+            if(in_array($data['parent_id'],$ids)){
+                $this->jump("index.php?p=admin&c=category&a=edit&cat_id={$data['cat_id']}",'修改分类失败',2);
+                exit;
+            }
             if($category->update($data)){
                 $this->jump('index.php?p=admin&c=category&a=index','修改分类成功',2);
             }else{
-                $this->jump('index.php?p=admin&c=category&a=index','修改分类失败',2);
+                $this->jump("index.php?p=admin&c=category&a=edit&cat_id={$data['cat_id']}",'修改分类失败',2);
             }
 
         }
         public function deleteAction(){
-
+            $cat_id = $_GET['cat_id'];
+            $category = new CategoryModel('category');
+            $ids = $category->getSubIds($cat_id);
+            if(count($ids)>1){
+                $this->jump("index.php?p=admin&c=category&a=index",'删除分类失败,该分类有后代分类，不能直接删除',2);
+                exit;
+            }
+            if($category->delete($cat_id)){
+                $this->jump('index.php?p=admin&c=category&a=index','删除分类成功',2);
+            }else{
+                $this->jump("index.php?p=admin&c=category&a=index",'删除分类失败',2);
+            }
         }
 
     }
