@@ -40,6 +40,7 @@ CREATE TABLE kt_attribute(
   attr_input_type TINYINT(3) NOT NULL ,
   attr_value VARCHAR(45) NOT NULL,
   type_id INT NOT NULL ,
+  sort_order TINYINT NOT NULL DEFAULT 50,
   FOREIGN KEY (type_id) REFERENCES kt_goods_type(type_id)
 );
 CREATE TABLE kt_goods_attr(
@@ -53,5 +54,12 @@ CREATE TABLE kt_goods_attr(
 CREATE TABLE kt_goods_type(
   type_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
   type_name VARCHAR(45) NOT NULL
+);
+CREATE TABLE kt_admin(
+  admin_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  admin_name VARCHAR(45) NOT NULL ,
+  admin_password VARCHAR(45) NOT NULL ,
+  admin_email VARCHAR(45),
+  add_time INT NOT NULL DEFAULT 0
 );
 SHOW TABLES ;

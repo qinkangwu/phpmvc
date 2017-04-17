@@ -1,5 +1,5 @@
 <?php
-    class CategoryController extends Controller{
+    class CategoryController extends BaseController{
         public function indexAction(){
             $category = new CategoryModel('category');
             $cats = $category->getCats();
@@ -16,7 +16,8 @@
             $data['unit'] = $_POST['unit'];
             $data['sort_order'] = $_POST['sort_order'];
             $data['is_show'] = $_POST['is_show'];
-            $data['cat_desc'] = $_POST['cat_desc'];
+            $this->helperLoad('input');
+            $data['cat_desc'] = deepSpecialChars($_POST['cat_desc']);
             if($data['cat_name']===''){
                 $this->jump('index.php?p=admin&c=category&a=add','分类名称不能为空',3);
             }

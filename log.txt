@@ -1,0 +1,4 @@
+2017-04-14 16:58:23 set names utf8
+2017-04-14 16:58:23 DESC kt_category
+2017-04-14 16:58:23 SELECT * FROM kt_category
+2017-04-14 16:58:23 select * from `kt_category` where `cat_id`=5

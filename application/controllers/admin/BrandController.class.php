@@ -1,5 +1,5 @@
 <?php
-    class BrandController extends Controller {
+    class BrandController extends BaseController {
         public function indexAction(){
             require CUR_VIEW_PATH . 'brand_list.html';
         }

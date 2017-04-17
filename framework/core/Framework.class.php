@@ -34,6 +34,7 @@
             require CORE_PATH.'Model.class.php';
             require DATABASE_PATH.'Mysql.class.php';
             $GLOBALS["config"] = require CONFIG_PATH.'config.php';
+            session_start();
         }
 
         //路由分发

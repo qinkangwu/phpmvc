@@ -37,7 +37,13 @@ class Mysql{
 	 * @param $sql string 查询sql语句
 	 * @return $result，成功返回资源，失败则输出错误信息，并退出
 	 */
-	public function query($sql){		
+	public function query($sql){
+	    if($GLOBALS['config']['sql_debug']){
+	        //将sql打印到日志文件中
+            $res = fopen('log.txt','a+');
+            fwrite($res,date('Y-m-d H:i:s',time()+6*3600).' '.$sql . PHP_EOL);
+            fclose($res);
+        }
 		$this->sql = $sql;
 		$result = mysql_query($this->sql,$this->conn);
 		

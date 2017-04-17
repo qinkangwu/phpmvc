@@ -1,5 +1,5 @@
 <?php
-    class IndexController extends Controller{
+    class IndexController extends BaseController{
         public function indexAction(){
             //echo '后台首页';
             require CUR_VIEW_PATH.'index.html';
@@ -15,10 +15,5 @@
         }
         public function mainAction(){
             require CUR_VIEW_PATH.'main.html';
-        }
-        public function codeAction(){
-            $this->libLoad('Captcha');
-            $captcha = new Captcha();
-            $captcha->generateCode();
         }
     }

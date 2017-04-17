@@ -6,5 +6,7 @@ return array(
     'dbname'=>'ztt',
     'charset'=>'utf8',
     'port'=>'3306',
-    'prefix'=>'kt_'
+    'prefix'=>'kt_',
+    'sql_debug'=>false, //需要将sql打印到日志文件就改为true
+    'pagesize'=>5
 );
