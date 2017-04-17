@@ -34,7 +34,7 @@
 				<td align="right">12</td>
 				<td align="center"><img src="application/views/admin/images/yes.gif"></td>
 				<td align="center">
-				  <a href="attribute.php?act=list&amp;goods_type=1" title="属性列表">属性列表</a> |
+				  <a href="index.php?p=admin&c=attribute&a=index&type_id" title="属性列表">属性列表</a> |
 				  <a href="index.php?p=admin&c=type&a=edit&type_id=<?php echo $v['type_id']?>" title="编辑">编辑</a> |
 				  <a href="index.php?p=admin&c=type&a=delete&type_id=<?php echo $v['type_id']?>" onclick="javascript:;confirm('确定？')" title="移除">移除</a>
 				</td>
@@ -47,7 +47,7 @@
       <td align="right" nowrap="true" colspan="6" style="background-color: rgb(255, 255, 255);">
             <!-- $Id: page.htm 14216 2008-03-10 02:27:21Z testyang $ -->
             <div id="turn-page">
-            <?php echo $pageInfo;?>
+                <?php echo $pageInfo;?>
        <!--
         总计  <span id="totalRecords">10</span>
         个记录分为 <span id="totalPages">1</span>
